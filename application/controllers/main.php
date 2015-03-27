@@ -76,6 +76,13 @@ class Main extends CI_Controller {
 		
 	}
 
+	public function view_profile($id)
+	{
+		$this->load->model('process');
+		$data['user']=$this->process->get_specific_user($id);
+		$this->load->view('other_user_profile', $data );
+	}
+
 	public function out()
 	{
 

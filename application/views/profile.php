@@ -19,71 +19,69 @@
 		<link rel="stylesheet" type="text/css" href="/assets/css/profile.css">
 
 	</head>
-	<a href='/main/out'>Sign out</a>
-	<?php
-	echo '<h2> Hello '.$this->session->userdata('first_name') . '</h2>'; 
-	?>
-	<h1> Here are your friends </h1>
-	<table>
-		<th>
-			Name
-		</th>
-		<th>
-			View
-		</th>
-		<th>
-			Unfriend
-		</th>
+	<body>
+		<a href='/main/out'>Sign out</a>
 		<?php
-		foreach ($friends as $friend) {
-			?>
-			<tr>
-				<td>
-				<?php
-				echo $friend['first_name'];
-				?>
-				</td>
-				<td>
-					<a href='#'>View</a>
-				</td>
-				<td>
-					<a href='#'>Delete</a>
-				</td> 
-			</tr>
-			<?php
-		}
-
+		echo '<h2> Hello '.$this->session->userdata('first_name') . '</h2>'; 
 		?>
-	</table>
-
-	<h2>Here are some other people you could be friends with<h2>
-    <table>
-		<th>
-			Name
-		</th>
-		<th>
-			View
-		</th>
-		<th>
-			Unfriend
-		</th>
-		<?php
-		foreach ($not_friends as $not_friend) {
-			?>
-			<tr>
-				<td>
-				<?php
-				echo '<a href="#">'.$not_friend['first_name'].'</a>';
-				?>
-				</td>
-				<td>
-					<a href='#'>Add</a>
-				</td> 
-			</tr>
+		<h1> Here are your friends </h1>
+		<table>
+			<th>
+				Name
+			</th>
+			<th>
+				View
+			</th>
+			<th>
+				Unfriend
+			</th>
 			<?php
-		}
+			foreach ($friends as $friend) {
+				?>
+				<tr>
+					<td>
+					<?php
+					echo $friend['first_name'];
+					?>
+					</td>
+					<td>
+						<a href='/main/view_profile/<?= $friend['id']?>'>View</a>
+					</td>
+					<td>
+						<a href='#'>Delete</a>
+					</td> 
+				</tr>
+				<?php
+			}
 
-		?>
-	</table>
+			?>
+		</table>
 
+		<h2>Here are some other people you could be friends with</h2>
+	    <table>
+			<th>
+				Name
+			</th>
+			<th>
+				Action
+			</th>
+			<?php
+			foreach ($not_friends as $not_friend) {
+				?>
+				<tr>
+					<td>
+					<?php
+					echo ' <a href="/main/view_profile/'.$not_friend['id'].'">' .$not_friend['first_name'].'</a>';
+					?>
+					</td>
+					<td>
+						<a href='#'>Add</a>
+					</td> 
+				</tr>
+				<?php
+			}
+
+			?>
+		</table>
+	</body>
 	

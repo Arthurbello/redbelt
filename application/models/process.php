@@ -63,6 +63,10 @@ class process extends CI_Model {
     	return $this->db->query('SELECT * FROM users WHERE users.id NOT IN (SELECT friendships.friend_id from friendships WHERE user_id = '.$this->session->userdata('id').') AND id != '.$this->session->userdata('id'))->result_array();
     }
     
+    function get_specific_user($id)
+    {
+    	return $this->db->query('SELECT * FROM users WHERE id ='. $id)->result_array();
+    }
     
 }
 
