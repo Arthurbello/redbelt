@@ -76,7 +76,8 @@ class process extends CI_Model {
 
     function add_this_friend($id)
     {
-    	
+    	$this->db->query('INSERT INTO friendships (user_id, friend_id) VALUES ('.$this->session->userdata('id').', '.$id.')');
+    	$this->db->query('INSERT INTO friendships (user_id, friend_id) VALUES ('.$id.', '.$this->session->userdata('id').')');
     }
     
 }

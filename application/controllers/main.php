@@ -82,11 +82,18 @@ class Main extends CI_Controller {
 		$data['user']=$this->process->get_specific_user($id);
 		$this->load->view('other_user_profile', $data );
 	}
-
+	// This is the delete friend function which sends the id of the friend to be deleted to the model
 	public function delete_friend($id)
 	{
 		$this->load->model('process');
 		$data['user']=$this->process->delete_this_friend($id);
+		redirect('/main/profile');
+	}
+	// This is the add friend function which sends the id of the friend to be added to the model
+	public function add_friend($id)
+	{
+		$this->load->model('process');
+		$data['user']=$this->process->add_this_friend($id);
 		redirect('/main/profile');
 	}
 
