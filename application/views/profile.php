@@ -48,7 +48,7 @@
 						<a href='/main/view_profile/<?= $friend['id']?>'>View</a>
 					</td>
 					<td>
-						<a href='#'>Delete</a>
+						<a href='/main/delete_friend/<?= $friend['id']?>'>Delete</a>
 					</td> 
 				</tr>
 				<?php

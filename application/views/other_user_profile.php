@@ -16,12 +16,13 @@
 		<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 		<script src="parallax.js"></script>
 		<link rel="stylesheet" href="/resources/demos/style.css">
-<!-- 		<link rel="stylesheet" type="text/css" href="/assets/css/profile.css">
- -->
+		<link rel="stylesheet" type="text/css" href="/assets/css/profile.css">
+
 	</head>
 	<body>
 		<?php
-		echo '<h2>'.$user['first_name'] . '\'s Profile</h2>'; 
-		echo '<p>Name:'. $user['first_name'].' '.$user['last_name'] .'</p>';
+		echo '<h2>'.$user[0]['first_name'] . '\'s Profile</h2>'; 
+		echo '<p>Name: '. $user[0]['first_name'].' '.$user[0]['last_name'] .'</p>';
+		echo '<p>Email Addresss: '.$user[0]['email'].'</p>';
 		?>
 	</body>

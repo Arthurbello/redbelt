@@ -83,6 +83,13 @@ class Main extends CI_Controller {
 		$this->load->view('other_user_profile', $data );
 	}
 
+	public function delete_friend($id)
+	{
+		$this->load->model('process');
+		$data['user']=$this->process->delete_this_friend($id);
+		redirect('/main/profile');
+	}
+
 	public function out()
 	{
 

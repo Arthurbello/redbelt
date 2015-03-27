@@ -67,6 +67,17 @@ class process extends CI_Model {
     {
     	return $this->db->query('SELECT * FROM users WHERE id ='. $id)->result_array();
     }
+
+    function delete_this_friend($id)
+    {
+    	$this->db->query('DELETE FROM friendships WHERE user_id = '.$this->session->userdata('id').' AND friend_id ='. $id);
+    	$this->db->query('DELETE FROM friendships WHERE user_id = '.$id.' AND friend_id ='. $this->session->userdata('id'));
+    }
+
+    function add_this_friend($id)
+    {
+    	
+    }
     
 }
 
